@@ -47,12 +47,15 @@ def generate(prompt: str) -> str:
 
 
 if __name__ == "__main__":
-    result = generate("私は田中です")
+
+    user_input = input("あなた: ")
+    result = generate(user_input)
     print("--- 生成結果1 ---")
     print(result)
     print("------\n")
 
-    result = generate("私の名前を教えてください。")
+    user_input = input("あなた: ")
+    result = generate(user_input)
     print("--- 生成結果2 ---")
     print(result)
     print("------\n")
