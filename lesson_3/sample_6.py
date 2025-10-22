@@ -13,6 +13,7 @@ model = "gemini-flash-lite-latest"
 # 会話履歴を保持するリスト
 conversation_history = []
 
+
 def generate(prompt: str) -> str:
     # ユーザーのメッセージを履歴に追加
     conversation_history.append(
@@ -44,26 +45,14 @@ def generate(prompt: str) -> str:
 
     return response.text
 
-def chat():
-    print("Geminiとの会話を開始します。「終了」と入力すると会話を終了します。")
-    print("--------------------")
-    
-    while True:
-        user_input = input("あなた: ")
-        
-        if user_input.lower() == "終了":
-            print("会話を終了します。")
-            break
-            
-        try:
-            response = generate(user_input)
-            print("Gemini:", response)
-            print("--------------------")
-        except Exception as e:
-            print(f"エラーが発生しました: {e}")
-            print("もう一度試してください。")
-            print("--------------------")
 
 if __name__ == "__main__":
-    chat()
-    
+    result = generate("私は田中です")
+    print("--- 生成結果1 ---")
+    print(result)
+    print("------\n")
+
+    result = generate("私の名前を教えてください。")
+    print("--- 生成結果2 ---")
+    print(result)
+    print("------\n")
